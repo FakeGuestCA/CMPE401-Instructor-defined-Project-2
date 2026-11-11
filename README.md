@@ -23,7 +23,8 @@ For datasets, FordA is used for the Transformer classification, and Jena Climate
 
 # 4. Model Architectures
 Major differences between Transformer and LSTM
-|Feature|Transformer|LSTM|
+| Feature | Transformer | LSTM |
+| ------- | ----------- | ---- |
 |Data processing|Sequential: Data is processed one after another|Parallel: All data is processed simultaneously|
 |Key mechanism|Uses input, forget, and output gates to either retain or discard information.|Direct relationships between all tokens are computed at once.|
 |Training speed|Slower since data is processed step-by-step.|Faster since parallelism allows better GPU utilization.|
