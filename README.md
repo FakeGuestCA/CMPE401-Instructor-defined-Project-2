@@ -14,19 +14,34 @@ FordA and Jena Climate
 # 4. Model Architectures
 Transformer and LSTM explanations
 
+For the given LSTM:
+1. Input: 120 hourly observations * 7 features each
+2. LSTM layer: 32 units
+3. Output: 1 output (predict temperature for next 12 hours)
+
 # 5. Baseline Results
 Results from the two original notebooks
 
 # 6. Improvement Experiments
-With the three modifications
+For the improved experiments, I chose modifying the LSTM Forcasting.
+
+For the first experiment, I increased the batch size from 256 to 512.
+For the second experiment, I increased the learning rate from 0.001 to 0.002.
+For the final experiment, I stacked the two LSTM layers.
 
 # 7. Benchmark Comparison
 Tables and graps comparing results.
 
+
+
 # 8. Discussion
 What I learned and what worked best
+
 Which model did you find easier to understand and why?
+
 What improvement did you try, and what did you learn from it?
+For the first experiment, I noticed that the validation loss didn't decrease after epoch 3. After epoch 3, as more epochs are completed, the loss decreased (steadily going down to 0.1064 from 0.1178). However, the validation loss increased steadily, from 0.1211 to 0.1255.
+
 
 # 9. Conclusion
 Overall findings
