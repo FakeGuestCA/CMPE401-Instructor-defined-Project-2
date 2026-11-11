@@ -1,0 +1,8 @@
+Measurement,LSTM (baseline),LSTM (batch size),LSTM (learning rate),LSTM (stack two LSTM layers)
+Dataset,Jena Climate,Jena Climate,Jena Climate,Jena Climate
+Training epochs,10,8 out of 10 (stopped early),10,10
+Batch size,256,512,256,256
+Learning rate,0.001,0.001,0.002,0.001
+Final training loss,0.1058,0.1064,0.1023,0.101
+Final validation loss,0.1295,0.1255,0.1349,0.125
+Training time,10 minutes,6 minutes,9 minutes,11 minutes
