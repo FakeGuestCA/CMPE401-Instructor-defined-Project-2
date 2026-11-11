@@ -40,11 +40,25 @@ For the given LSTM:
 3. Output: 1 output (predict temperature for next 12 hours)
 
 # 5. Baseline Results
-Results from the two original notebooks
+The CSV files for the baseline (and experiments) results can be found in the results folder. I will list them below as well.
+| Measurement | Transformer | LSTM |
+| ----------- | ----------- | ---- |
+|Dataset|FordA|Jena Climate|
+|Training epochs|150|10|
+|Batch size|64|256|
+|Learning rate|0.0001|0.001|
+|Final training loss|0.6928|0.1058|
+|Final validation loss|0.6927|0.1295|
+|Test performance (accuracy)|0.5159|-|
+|Sparse categorical accuracy (SCA)|0.5122|-|
+|Validation SCA|0.5146|-|
+|Validation MAE|-|0.2853|
+|Validation MSE|-|0.13149|
+|Training time|9 minutes|10 minutes|
 
-Note that for the Transformer notebook, there is an inconsistency with the "GlobalAveragePooling1D" layer. The provided code produces a pooling output shape of "(None, 1)", while the model summary published on the official Keras shows an output shape of "(None, 500)". This might have limited the effectiveness of the attention and normalization layer, causing the training to stop early and achieve an accuracy of ~51% with a loss of ~0.693.
+*Note that for the Transformer notebook, there is an inconsistency with the "GlobalAveragePooling1D" layer. The provided code produces a pooling output shape of "(None, 1)", while the model summary published on the official Keras shows an output shape of "(None, 500)". This might have limited the effectiveness of the attention and normalization layer, causing the training to stop early and achieve an accuracy of ~51% with a loss of ~0.693.
 
-For the LSTM, in the training and validation loss graph, I noticed that the model started to overfit after 8 epochs, as the training loss continues to decrease while the validation loss starts to increase. This means that the model started to learn the training noise/details rather than the general patterns.
+For the LSTM, in the training and validation loss graph, I noticed that the model started to overfit after 8 epochs, as the training loss continues to decrease while the validation loss starts to increase. This means that the model started to learn the training noise/details rather than the general patterns. However, this can be an error, as the baseline notebooks are only ran once and there are only 10 epochs (small compared to Transformer's 150 epochs).
 
 # 6. Improvement Experiments
 For the improved experiments, I chose modifying the LSTM Forcasting.
