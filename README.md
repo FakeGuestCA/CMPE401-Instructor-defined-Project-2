@@ -1,18 +1,37 @@
 # CMPE401 Instructor-defined Project 2
+# Understand, Organize Time Series Modelling Benchmarks for Classification and Forecasting
 
 Group members: Fortune Olawale, Trevor Wu.
 
 # 1. Project Overview
-What the project investigates
+This project focuses on organizing, running, analysing, and improving two official Keras time-series. First one is a time-series classification problem solved with a Transformer model, and the second one is a time-series forecasting problem solved with an LSTM (long short-term memory) model.
+
+Time-series data appears in many engineering and real-world applications, such as weather monitoring, industrial sensing, health signals, traffic analysis, and activity recognition.
 
 # 2. Objectives
-What I intended to learn
+By completing this project, I:
+1. Understand the difference between time-series classification and time-series forecasting.
+2. Understand the difference between a Transformer-based model and an LSTM-based model.
+3. Reproduce and run official Keras examples correctly.
+4. Explain the dataset, model input, output, training process, and evaluation metrics.
+5. Perform a small benchmark or comparison through controlled changes.
+6. Make one reasonable improvement to one of the provided baselines.
+7. Organize results and baselines into a clean README-style project via GitHub.
 
 # 3. Datasets
-FordA and Jena Climate
+For datasets, FordA is used for the Transformer classification, and Jena Climate is used for the LSTM forecasting.
 
 # 4. Model Architectures
-Transformer and LSTM explanations
+Major differences between Transformer and LSTM
+|Feature|Transformer|LSTM|
+|Data processing|Sequential: Data is processed one after another|Parallel: All data is processed simultaneously|
+|Key mechanism|Uses input, forget, and output gates to either retain or discard information.|Direct relationships between all tokens are computed at once.|
+|Training speed|Slower since data is processed step-by-step.|Faster since parallelism allows better GPU utilization.|
+|Long-range context|Struggles over very long distance as information can dilute or fade over extended sequences.|Excels as self-attention connects any two points in the sequence regardless of distance.|
+|Resource demand|Lower: Lightweight and more memory-efficient.|Higher: Quadratic memory/comput scaling relative to sequence length.|
+
+For the given Transformer:
+
 
 For the given LSTM:
 1. Input: 120 hourly observations * 7 features each
