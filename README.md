@@ -41,7 +41,7 @@ For the given LSTM:
 
 # 5. Baseline Results
 The CSV files for the baseline (and experiments) results can be found in the results folder. I will list them below as well.
-| Measurement | Transformer | LSTM |
+| Measurement | Transformer* | LSTM |
 | ----------- | ----------- | ---- |
 |Dataset|FordA|Jena Climate|
 |Training epochs|150|10|
@@ -56,7 +56,7 @@ The CSV files for the baseline (and experiments) results can be found in the res
 |Validation MSE|-|0.13149|
 |Training time|9 minutes|10 minutes|
 
-*Note that for the Transformer notebook, there is an inconsistency with the "GlobalAveragePooling1D" layer. The provided code produces a pooling output shape of "(None, 1)", while the model summary published on the official Keras shows an output shape of "(None, 500)". This might have limited the effectiveness of the attention and normalization layer, causing the training to stop early and achieve an accuracy of ~51% with a loss of ~0.693.
+*Note that for the Transformer notebook, there is an inconsistency with the "GlobalAveragePooling1D" layer. The provided code produces a pooling output shape of "(None, 1)", while the model summary published on the official Keras shows an output shape of "(None, 500)". This might have limited the effectiveness of the attention and normalization layer, causing the training to stop early (usually from 10 epochs to 50 epochs) and achieve an accuracy of ~51% with a loss of ~0.693.
 
 For the LSTM, in the training and validation loss graph, I noticed that the model started to overfit after 8 epochs, as the training loss continues to decrease while the validation loss starts to increase. This means that the model started to learn the training noise/details rather than the general patterns. However, this can be an error, as the baseline notebooks are only ran once and there are only 10 epochs (small compared to Transformer's 150 epochs).
 
@@ -67,7 +67,7 @@ For the first experiment, I increased the batch size from 256 to 512.
 For the second experiment, I increased the learning rate from 0.001 to 0.002.
 For the final experiment, I stacked the two LSTM layers.
 
-All three of the notebooks with outputs are included. 
+All three of the notebooks with outputs are included. They are in notebooks/modifed with output
 
 # 7. Benchmark Comparison
 Tables and graps comparing results.
@@ -77,6 +77,7 @@ Tables and graps comparing results.
 What I learned and what worked best
 
 Which model did you find easier to understand and why?
+Personally I find the LSTM model easier to understand since as of writing this (Nov 11, 2026) we have not gone over Transformers in the lectures yet. I had to read into additional papers to better understand the Transformer model.
 
 What improvement did you try, and what did you learn from it?
 1. For the first experiment (increasing batch size), I noticed that the validation loss didn't decrease after epoch 3. After epoch 3, as more epochs are completed, the loss decreased from 0.1178 to 0.1064. However, the validation loss steadily increased from 0.1211 to 0.1255. This means the model started to overfit after epoch 3, meaning that it learned the training details rather than general patterns. Additionally, in the training and validation loss graph, both of the curves are much smoother and do not have as many jumps compared to the baseline graph, which makes sense as higher batch size means that the parameters are not updated as frequently.
