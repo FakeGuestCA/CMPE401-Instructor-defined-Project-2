@@ -12,7 +12,7 @@ Time-series data is commonly used in engineering and real-world applications, in
 
 The project focuses on understanding how these two neural network architectures work, reproducing the provided implementations, and investigating how modifications to model configurations and architecture affect training behaviour and predictive performance.
 
-*The LSTM forecasting model was selected for the improvement experiments.*
+**The LSTM forecasting model was selected for the improvement experiments.**
 
 # 2. Objectives
 The main objectives of this project are to:
@@ -27,12 +27,12 @@ The main objectives of this project are to:
 # 3. Datasets
 Two datasets are used in this project.
 
-# 3.1 FordA
+## 3.1 FordA
 FordA is used for the Transformer-based time-series classification task.
 
 The dataset contains time-series measurements represented as sequences of 500 observations with one feature per time step. The objectives is to classify each sequence into one of two classes.
 
-# 3.2 Jena Climate
+## 3.2 Jena Climate
 The Jena Climate dataset is used for the LSTM-based forecasting task.
 
 The dataset was recorded at the weather station of the Max Planck Institute for Biogeochemistry in Jena, Germany, between January 2009 and December 2016. It contains weather measurements such as temperature, atomspheric pressure, humidity, and wind speed.
@@ -47,14 +47,14 @@ The LSTM has:
 The dataset is normalized before training to help the model earn from features with different numerical ranges.
 
 # 4. Model Architectures
-# 4.1 Transformer
+## 4.1 Transformer
 The Transformer uses self-attention mechanisms to identify relationships between different positions in a sequence. Unlike recurrent networks (such as LSTM), it can process sequence positions in parallel during training.
 
 The provded implementation uses Transformer encoder blocks containing multi-head attention and feed-forward layers, followed by global average pooling and dense classification layers.
 
 The model is trained to classify FordA sequences into two classes using sparse categorical cross-entropy as its loss function.
 
-# 4.2 LSTM
+## 4.2 LSTM
 The LSTM is a type of recurrent neural network designed to learn temporal relationships in sequential data. It uses gates to control which information is retained, updated, or discarded over time.
 
 The original Keras implementation consists of:
@@ -64,7 +64,7 @@ The original Keras implementation consists of:
 
 The model uses the Adam optimizeer with a learning rate of 0.001 and mean squared error (MSE) as its loss function.
 
-# 4.3 Transformer vs. LSTM
+## 4.3 Transformer vs. LSTM
 | Feature | Transformer | LSTM |
 | ------- | ----------- | ---- |
 |Data processing|Can process sequence positions in parallel using self-attention.|Processes sequences recurrently, one time step at a time.|
@@ -76,21 +76,29 @@ The model uses the Adam optimizeer with a learning rate of 0.001 and mean square
 Neither architecture is universally faster or more efficient. Their performance depends on the sequence length, model size, hardware, and implementation.
 
 # 5. Baseline Results
-The CSV files for the baseline (and experiments) results can be found in the results folder. I will list them below as well.
-| Measurement | Transformer* | LSTM |
+The Colab notebooks were used to establish baseline results before performing any modifications.
+The baseline CSV file is available at **results/baseline_transformer_and_lstm.csv**.
+
+| Measurement | Transformer | LSTM |
 | ----------- | ----------- | ---- |
 |Dataset|FordA|Jena Climate|
-|Training epochs|150|10|
+|Maximum epochs|150|10|
+|Actual epochs competed|11|10|
 |Batch size|64|256|
 |Learning rate|0.0001|0.001|
-|Final training loss|0.6928|0.1058|
-|Final validation loss|0.6927|0.1295|
-|Test performance (accuracy)|0.5159|-|
-|Sparse categorical accuracy (SCA)|0.5122|-|
-|Validation SCA|0.5146|-|
-|Validation MAE|-|0.2853|
-|Validation MSE|-|0.13149|
+|Recorded training loss|0.6928|0.1058|
+|Recorded validation loss|0.6927|0.1295|
+|Test performance (accuracy)|0.5159|N/A|
+|Sparse categorical accuracy (SCA)|0.5122|N/A|
+|Validation SCA|0.5146|N/A|
+|Validation MAE|N/A|0.2853|
+|Validation MSE|N/A|0.13149|
 |Training time|9 minutes|10 minutes|
+
+**Transformer baseline observation:**
+The Transformer training stopped early after 11 epochs because the validation loss did not improve. Its test accuracy was approximately 51.59%, with a loss close to 0.693.
+
+During investigation, an inconsistency was identified in the `GlobalAveragePolling1D` layer. The provided source code specifies `data_format="channels_last"`, producing an output shape of 
 
 *Note that for the Transformer notebook, there is an inconsistency with the "GlobalAveragePooling1D" layer. The provided code produces a pooling output shape of "(None, 1)", while the model summary published on the official Keras shows an output shape of "(None, 500)". This might have limited the effectiveness of the attention and normalization layer, causing the training to stop early (usually from 10 epochs to 50 epochs) and achieve an accuracy of ~51% with a loss of ~0.693.
 
