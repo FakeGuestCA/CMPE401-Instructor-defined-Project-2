@@ -122,6 +122,7 @@ The LSTM forecasting model was selected for the improvement task. Three experime
 - Architecture: One LSTM layer with 32 units.
 
 **Observations:**
+
 The model stopped early after 8 out of 10 maximum epochs. The training log shows that the validation loss reached its lowest value of approximately 0.1211 at epoch 3. It then increased over the following epochs, while the training loss continued to decrease.
 
 The early stopping callbacked used a patience value of 5. Since the validation loss did not improve for 5 consecutive epochs after epoch 3, training stopped after epoch 8. (Even though early stopping is outside of the scope of this project as mentioned by the instructor, I have decided to look into it)
@@ -139,7 +140,8 @@ Training time decreased from approximately 10 minutes to 6 minutes. This suggest
 - Modified learning rate: 0.002
 - Architecture: One LSTM layer with 32 units.
 
-**Observations**
+**Observations:**
+
 The training loss decreased to 0.1023, compared with 0.1058 in the baseline.
 
 However, the final validation loss increased from the baseline of 0.1295 to 0.1349. This indicates that the lower training loss didn not translate into better validation performance.
@@ -158,6 +160,7 @@ This demonstrates that increasing the learning rate does not necessarily improve
 - Modified architecture: Two stacked LSTM layers, each with 32 units.
 
 **Observations:**
+
 The first LSTM layer was configured with `return-sequence=True` so that it would return its output at every time step. This sequence was then passed to the second LSTM layer, which produced the final output used by the Dense layer.
 
 The modified model achieved a training loss of 0.1010 and a validation loss of 0.1250.
