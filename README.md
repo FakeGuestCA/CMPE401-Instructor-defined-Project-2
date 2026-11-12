@@ -173,7 +173,7 @@ The following table summarizes the results of the baseline and all three experim
 |Configuration|Epochs|Training loss|Final validation loss|Best validation loss|Training time|
 |---|---|---|---|---|---|
 |Baseline|10|0.1058|0.1295|0.1276|10 min|
-|Batch size 512|8|0.1064|0.1255|0.1211(epoch 3)|6 min|
+|Batch size 512|8|0.1064|0.1255|0.1211 (epoch 3)|6 min|
 |Learning rate 0.002|10|0.1023|0.1349|0.1349|9 min|
 |Two LSTM layers|10|0.1010|0.1250|0.1250|11 min|
 
@@ -191,15 +191,21 @@ The following table summarizes the results of the baseline and all three experim
 ![Two stacked LSTM layers](https://github.com/FakeGuestCA/CMPE401-Instructor-defined-Project-2/blob/main/results/graphs/lstm_modified3_training_and_validation_graph.png?raw=true)
 
 # 8. Discussion
-What I learned and what worked best
+**Which model did you find easier to understand and why?**
+Personally, I found the LSTM model easier to understand. At the time of completing this project (Nov 11, 2026), Transformers had not yet been covered in lectures, so I needed to refer to additional resources and research papers to understand how the architecture works.
 
-Which model did you find easier to understand and why?
-Personally I find the LSTM model easier to understand since as of writing this (Nov 11, 2026) we have not gone over Transformers in the lectures yet. I had to read into additional papers to better understand the Transformer model.
+The LSTM architecutre was more intuitive to follow because its recurrent structure and gating mechanisms provide a clear way of understanding how information is retained and updated over time.
 
-What improvement did you try, and what did you learn from it?
-1. For the first experiment (increasing batch size), I noticed that the validation loss didn't decrease after epoch 3. After epoch 3, as more epochs are completed, the loss decreased from 0.1178 to 0.1064. However, the validation loss steadily increased from 0.1211 to 0.1255. This means the model started to overfit after epoch 3, meaning that it learned the training details rather than general patterns. Additionally, in the training and validation loss graph, both of the curves are much smoother and do not have as many jumps compared to the baseline graph, which makes sense as higher batch size means that the parameters are not updated as frequently.
-2. In the second experiment (increasing learning rates), the validation loss starts off noticeable higher and it steadily decreases at a higher rate as the more epochs are completed than the baseline. Neither the loss numbers nor the training and validation loss graph showed any signs of the model overfitting like in experiment 1, because even though the learning rate has been doubled, it might still not be large enough to have an impact.
-3. In the final experiment (stacking two LSTM layers), while it took the longest to train, it has the lowest training loss of 0.1010 as well as validation loss of 0.125, compared to the baseline as well as the two previous experiments. This means that the model is more accurate and generalize better after stacking two LSTM layers together. Looking at the training and validation loss graph, it is noticeable not as jumpy as the baseline, which might have been also caused by the two LSTM layers.
+**What improvement did you try, and what did you learn from it?**
+The three experiments demonstrated that different modifications can affect training behaviour and validation performance in different ways.
+
+Increasing the batch size reduced training time and produced smoother loss curves. However, the model stopped early because its validation loss began increasing after epoch 3. This best validation loss was 0.1211, although the final validation loss was 0.1255.
+
+Increasing the learning rate reduced the training loss, but the validation loss was higher than the baseline. This demonstrated that a model fitting the training data more closely does not necessarily mean it performs better on unseen data.
+
+Stacking two LSTM layers resulted in lower final training and validation losses than the baseline. However, this improvement came with a larger model and longer training time. It suggests that increasing model capacity can be beneficial, but the additional computational cost should also be considered.
+
+Overall, these experiments showed the importance of evaluating both training and validation performance instead of relying on training loss alone.
 
 # 9. Conclusion
 Overall findings
