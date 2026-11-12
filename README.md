@@ -12,7 +12,7 @@ Time-series data is commonly used in engineering and real-world applications, in
 
 The project focuses on understanding how these two neural network architectures work, reproducing the provided implementations, and investigating how modifications to model configurations and architecture affect training behaviour and predictive performance.
 
-**The LSTM forecasting model was selected for the improvement experiments.**
+**The LSTM forecasting model was selected for the improvement experiments. Details below.**
 
 # 2. Objectives
 The main objectives of this project are to:
@@ -110,11 +110,35 @@ This suggests that the model may have started overfitting, as it continued impro
 However, the baseline was only run once. Therefore, additional runs would be necessary to determine how consistently this behaviour occurs.
 
 # 6. Improvement Experiments
-For the improved experiments, I chose modifying the LSTM Forcasting.
+The LSTM forecasting model was selected for the improvement task. Three experiments were performed, with one major variable changed at a time while keeping the remaining configuration unchanged.
 
-For the first experiment, I increased the batch size from 256 to 512.
-For the second experiment, I increased the learning rate from 0.001 to 0.002.
-For the final experiment, I stacked the two LSTM layers.
+## 6.1 Experiment 1: Increasing Batch Size
+**Modification:**
+- Original batch size: 256
+- Modified batch size: 512
+- Learning rate: 0.001
+- Architecture: One LSTM layer with 32 units.
+
+Observations here
+
+## 6.2 Experiment 2: Increasing Learning Rate
+**Modification:**
+- Batch size: 256
+- Original learning rate: 0.001
+- Modified learning rate: 0.002
+- Architecture: One LSTM layer with 32 units.
+
+Observations here
+
+## 6.3 Experiment 3: Stacking Two LSTM Layers
+**Modification:**
+- Batch size: 256
+- Learning rate: 0.001
+- Original architecture: One LSTM layer with 32 units.
+- Modified architecture: Two stacked LSTM layers, each with 32 units.
+
+Observations here
+
 
 All three of the notebooks with outputs are included. They are in notebooks/modifed with output
 
