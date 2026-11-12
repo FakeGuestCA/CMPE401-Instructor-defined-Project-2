@@ -15,14 +15,14 @@ The project focuses on understanding how these two neural network architectures 
 The LSTM forecasting model was selected for the improvement experiments.
 
 # 2. Objectives
-By completing this project, I:
-1. Understand the difference between time-series classification and time-series forecasting.
-2. Understand the difference between a Transformer-based model and an LSTM-based model.
-3. Reproduce and run official Keras examples correctly.
-4. Explain the dataset, model input, output, training process, and evaluation metrics.
-5. Perform a small benchmark or comparison through controlled changes.
-6. Make one reasonable improvement to one of the provided baselines.
-7. Organize results and baselines into a clean README-style project via GitHub.
+The main objectives of this project are to:
+1. Understand the differences between time-series classification and time-series forecasting.
+2. Understand the differences between a Transformer-based model and an LSTM-based model.
+3. Reproduce and run the provided Keras examples.
+4. Understand the dataset, model input and output, training processes, and evaluation metrics.
+5. Investigate how changes to training configurations affect model peroformance.
+6. Modify an existing model architecture and evaluate the effects of the modification.
+7. Organize the notebooks, results, and observations into a documented GitHub repository.
 
 # 3. Datasets
 For datasets, FordA is used for the Transformer classification, and Jena Climate is used for the LSTM forecasting.
