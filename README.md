@@ -119,7 +119,16 @@ The LSTM forecasting model was selected for the improvement task. Three experime
 - Learning rate: 0.001
 - Architecture: One LSTM layer with 32 units.
 
-Observations here
+**Observations:**
+The model stopped early after 8 out of 10 maximum epochs. The training log shows that the validation loss reached its lowest value of approximately 0.1211 at epoch 3. It then increased over the following epochs, while the training loss continued to decrease.
+
+The early stopping callbacked used a patience value of 5. Since the validation loss did not improve for 5 consecutive epochs after epoch 3, training stopped after epoch 8. (Even though early stopping is outside of the scope of this project as mentioned by the instructor, I have decided to look into it)
+
+The training and validation curves also appeared smoother compared with the baseline. This may be explained by the larger batch size. Increasing the batch size reduces the number of batches processed per epoch, meaning fewer weight updates occur during training. Each update is also calculated using more training samples.
+
+The final recorded validation loss was 0.1255, even though the best validation loss was 0.1211 at epoch 3.
+
+Training time decreased from approximately 10 minutes to 6 minutes. This suggests that the larger batch size reduced the overall training time in this particular experiment, although the experiment also completed fewer epochs.
 
 ## 6.2 Experiment 2: Increasing Learning Rate
 **Modification:**
@@ -128,7 +137,16 @@ Observations here
 - Modified learning rate: 0.002
 - Architecture: One LSTM layer with 32 units.
 
-Observations here
+**Observations**
+The training loss decreased to 0.1023, compared with 0.1058 in the baseline.
+
+However, the final validation loss increased from the baseline of 0.1295 to 0.1349. This indicates that the lower training loss didn not translate into better validation performance.
+
+The validation loss started relatively high at 0.1661 and generally decreased throughout training, reaching 0.1349 by epoch 10. There was a small increase at epoch 4, but the overall trend was downwards.
+
+The higher learning rate did not cause obvious training instability in this experiment. However, it also did not improve the model's validation performance.
+
+This demonstrates that increasing the learning rate does not necessarily improve model performance. Although the model achieved a lower training loss, its performance on validation data was worse than the baseline.
 
 ## 6.3 Experiment 3: Stacking Two LSTM Layers
 **Modification:**
