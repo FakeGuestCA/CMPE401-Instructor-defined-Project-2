@@ -25,7 +25,19 @@ The main objectives of this project are to:
 7. Organize the notebooks, results, and observations into a documented GitHub repository.
 
 # 3. Datasets
-For datasets, FordA is used for the Transformer classification, and Jena Climate is used for the LSTM forecasting.
+Two datasets are used in this project
+
+# 3.1 FordA
+FordA is used for the Transformer-based time-series classification task.
+
+The dataset contains time-series measurements represented as sequences of 500 observations with one feature per time step. The objectives is to classify each sequence into one of two classes.
+
+# 3.2 Jena Climate
+The Jena Climate dataset is used for the LSTM-based forecasting task.
+
+The dataset was recorded at the weather station of the Max Planck Institute for Biogeochemistry in Jena, Germany, between January 2009 and December 2016. It contains weather measurements such as temperature, atomspheric pressure, humidity, and wind speed.
+
+The original dataset contains 14 features recorded every 10 minutes. For this project, seven selected features are used, and the data is sampled hourly.
 
 # 4. Model Architectures
 Major differences between Transformer and LSTM
