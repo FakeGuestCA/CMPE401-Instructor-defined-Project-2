@@ -67,19 +67,13 @@ The model uses the Adam optimizeer with a learning rate of 0.001 and mean square
 # 4.3 Transformer vs. LSTM
 | Feature | Transformer | LSTM |
 | ------- | ----------- | ---- |
-|Data processing|Can process sequence positions in parallel using self-attention|Processes sequences recurrently, one time step at a time|
-|Key mechanism|Uses input, forget, and output gates to either retain or discard information.|Direct relationships between all tokens are computed at once.|
-|Training speed|Slower since data is processed step-by-step.|Faster since parallelism allows better GPU utilization.|
-|Long-range context|Struggles over very long distance as information can dilute or fade over extended sequences.|Excels as self-attention connects any two points in the sequence regardless of distance.|
-|Resource demand|Lower: Lightweight and more memory-efficient.|Higher: Quadratic memory/comput scaling relative to sequence length.|
+|Data processing|Can process sequence positions in parallel using self-attention.|Processes sequences recurrently, one time step at a time.|
+|Key mechanism|Self-attention using queries, keys, and values.|Input, forget, and output gates.|
+|Training speed|Parallel processing can improve GPU utilization.|Sequential dependencies can limit parallel processing.|
+|Long-range context|Directly relates distant positions through attention.|Retains information through hidden and cell states, although very long dependencies can be challenging.|
+|Computational characteristics|Self-attention has quadratic scaling with sequence length.|Recurrent computation scales approximately linearly with sequence length, but is sequential.|
 
-For the given Transformer:
-
-
-For the given LSTM:
-1. Input: 120 hourly observations * 7 features each
-2. LSTM layer: 32 units
-3. Output: 1 output (predict temperature for next 12 hours)
+Neither architecture is universally faster or more efficient. Their performance depends on the sequence length, model size, hardware, and implementation.
 
 # 5. Baseline Results
 The CSV files for the baseline (and experiments) results can be found in the results folder. I will list them below as well.
