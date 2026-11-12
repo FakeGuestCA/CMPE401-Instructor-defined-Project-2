@@ -248,5 +248,14 @@ Throught this project, I gained a better understanding of the overall deep learn
 
 
 # 11. Running the Notebooks
-Instructions here
-Also give official Keras examples links
+The notebooks can be opened and executed using Google Colab.
+1. Open the desired notebook.
+2. Selected a suitable runtime (GPU).
+3. Execute the notebook cells in order.
+4. Review the model summary, training output, and loss graphs.
+
+The original baseline notebooks are located in **notebooks/baseline**. The three modified LSTM experiment notebooks, including their recorded outputs, are located in **notebooks/modified with outout/**.
+
+[Official Keras page for Transformer classification](https://keras.io/examples/timeseries/timeseries_classification_transformer/)
+
+[Official Keras page for LSTM forecasting](https://keras.io/examples/timeseries/timeseries_weather_forecasting/)
