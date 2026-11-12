@@ -1,12 +1,18 @@
-# CMPE401 Instructor-defined Project 2
+# CMPE 401 Instructor-defined Project 2
 # Understand, Organize Time Series Modelling Benchmarks for Classification and Forecasting
 
 Group members: Fortune Olawale, Trevor Wu.
 
 # 1. Project Overview
-This project focuses on organizing, running, analysing, and improving two official Keras time-series. First one is a time-series classification problem solved with a Transformer model, and the second one is a time-series forecasting problem solved with an LSTM (long short-term memory) model.
+This project explores two time-series modelling tasks using official Keras examples:
+1. Time-series classification: A Transformer model trained on FordA dataset.
+2. Time-series forecasting: A LSTM (Long Short-Term Memory) model trained on Jena Climate dataset.
 
-Time-series data appears in many engineering and real-world applications, such as weather monitoring, industrial sensing, health signals, traffic analysis, and activity recognition.
+Time-series data is commonly used in engineering and real-world applications, including weather monitoring, industrial sensing, health monitoring, traffic analysis, and activity recognition.
+
+The project focuses on understanding how these two neural network architectures work, reproducing the provided implementations, and investigating how modifications to model configurations and architecture affect training behaviour and predictive performance.
+
+The LSTM forecasting model was selected for the improvement experiments.
 
 # 2. Objectives
 By completing this project, I:
@@ -23,7 +29,7 @@ For datasets, FordA is used for the Transformer classification, and Jena Climate
 
 # 4. Model Architectures
 Major differences between Transformer and LSTM
-| Feature | Transformer | LSTM |
+| Feature | LSTM | Transformer |
 | ------- | ----------- | ---- |
 |Data processing|Sequential: Data is processed one after another|Parallel: All data is processed simultaneously|
 |Key mechanism|Uses input, forget, and output gates to either retain or discard information.|Direct relationships between all tokens are computed at once.|
