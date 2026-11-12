@@ -39,7 +39,25 @@ The dataset was recorded at the weather station of the Max Planck Institute for 
 
 The original dataset contains 14 features recorded every 10 minutes. For this project, seven selected features are used, and the data is sampled hourly.
 
+The LSTM has:
+- Input sequence: 120 time steps, with 7 features per time step.
+- Historical window: Approximately 5 days of weather observations.
+- Prediction target: Temperature 12 hours after the input window.
+
+The dataset is normalized before training to help the model earn from features with different numerical ranges.
+
 # 4. Model Architectures
+# 4.1 Transformer
+
+The Transformer uses self-attention mechanisms to identify relationships between different positions in a sequence. Unlike recurrent networks (such as LSTM), it can process sequence positions in parallel during training.
+
+The provded implementation uses Transformer encoder blocks containing multi-head attention and feed-forward layers, followed by global average pooling and dense classification layers.
+
+The model is trained to classify FordA sequences into two classes using sparse categorical cross-entropy as its loss function.
+
+# 4.2 LSTM
+
+# 4.3 LSTM vs. Transformer
 Major differences between Transformer and LSTM
 | Feature | LSTM | Transformer |
 | ------- | ----------- | ---- |
