@@ -179,15 +179,19 @@ The following table summarizes the results of the baseline and all three experim
 
 ## 7.1 Training and Validation Loss Graphs
 **Baseline:**
+
 ![Baseline](https://github.com/FakeGuestCA/CMPE401-Instructor-defined-Project-2/blob/main/results/graphs/lstm_baseline_training_and_validation_graph.png?raw=true)
 
 **Experiment 1 (Batch Size 512):**
+
 ![Batch size 512](https://github.com/FakeGuestCA/CMPE401-Instructor-defined-Project-2/blob/main/results/graphs/lstm_modified1_training_and_validation_graph.png?raw=true)
 
 **Experiment 2 (Learning Rate 0.002):**
+
 ![Learning rate 0.002](https://github.com/FakeGuestCA/CMPE401-Instructor-defined-Project-2/blob/main/results/graphs/lstm_modified2_training_and_validation_graph.png?raw=true)
 
 **Experiment 3 (Two Stacked LSTM Layers):**
+
 ![Two stacked LSTM layers](https://github.com/FakeGuestCA/CMPE401-Instructor-defined-Project-2/blob/main/results/graphs/lstm_modified3_training_and_validation_graph.png?raw=true)
 
 # 8. Discussion
@@ -223,6 +227,18 @@ Limitations to this project
 Future work
 
 # 10. Conclusion
+This project provided practical experience with time-series classification and forecasting using two different deep learning architectures.
+
+The Transformer and LSTM examples demonstrated two different approaches to processing sequential data. The Transformer uses self-attention to identify relationships between sequence positions, while the LSTM uses recurrent connections and gating mechanisms to retain and update information over time.
+
+The LSTM was selected for the improvement task. Three modifications were investigated: increasing batch size, increasing learning rate, and stacking two LSTM layers.
+
+The results showed that increasing batch size reduced training time but led to early stopping, while increasing the learning rate reduced training loss without improving validation performance. Stacking two LSTM layers achieved lower final training and validation losses than the baseline, although it increased model complexity and training time.
+
+Most importantly, the experiments demonstrated that improving a deep learning model is not simply a matter of increasing its size or changin its hyperparameters. Training behaviour, validation performance, computational cost, and model complexity must be considered when evaluating a modification.
+
+Throught this project, I gained a better understanding of the overall deep learning workflow, including data preparation, model construction, training, evaluation, and experimentation.
+
 
 # 11. Running the Notebooks
 Instructions here
