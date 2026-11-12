@@ -98,11 +98,16 @@ The baseline CSV file is available at **results/baseline_transformer_and_lstm.cs
 **Transformer baseline observation:**
 The Transformer training stopped early after 11 epochs because the validation loss did not improve. Its test accuracy was approximately 51.59%, with a loss close to 0.693.
 
-During investigation, an inconsistency was identified in the `GlobalAveragePolling1D` layer. The provided source code specifies `data_format="channels_last"`, producing an output shape of 
+During investigation, an inconsistency was identified in the `GlobalAveragePooling1D` layer. The provided source code specifies `data_format="channels_last"`, producing an output shape of of `(None, 1)` for an input shape of `(None, 500, 1)`. However, the model summary published on the official Keras example shows an output shape of `(None, 500)`.
 
-*Note that for the Transformer notebook, there is an inconsistency with the "GlobalAveragePooling1D" layer. The provided code produces a pooling output shape of "(None, 1)", while the model summary published on the official Keras shows an output shape of "(None, 500)". This might have limited the effectiveness of the attention and normalization layer, causing the training to stop early (usually from 10 epochs to 50 epochs) and achieve an accuracy of ~51% with a loss of ~0.693.
+This discrepancy was documented and reported to the instructor (via email). The instructor comfirmed that retaining the original implementation and its results as the baseline was acceptable. The results are therefore retained without making architectural corrections.
 
-For the LSTM, in the training and validation loss graph, I noticed that the model started to overfit after 8 epochs, as the training loss continues to decrease while the validation loss starts to increase. This means that the model started to learn the training noise/details rather than the general patterns. However, this can be an error, as the baseline notebooks are only ran once and there are only 10 epochs (small compared to Transformer's 150 epochs).
+**LSTM baseline observation:**
+The training loss generally decreased throughout the 10 epochs, while the validation loss fluctuated and eventually increased after reaching a lower value earlier in training.
+
+This suggests that the model may have started overfitting, as it continued improving its fit to the training data without achieving corresponding improvements on the validation data.
+
+However, the baseline was only run once. Therefore, additional runs would be necessary to determine how consistently this behaviour occurs.
 
 # 6. Improvement Experiments
 For the improved experiments, I chose modifying the LSTM Forcasting.
