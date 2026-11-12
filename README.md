@@ -201,11 +201,11 @@ The following table summarizes the results of the baseline and all three experim
 
 # 8. Discussion
 **Which model did you find easier to understand and why?**
-Personally, I found the LSTM model easier to understand. At the time of completing this project (Nov 11, 2026), Transformers had not yet been covered in lectures, so I needed to refer to additional resources and research papers to understand how the architecture works.
 
-The LSTM architecutre was more intuitive to follow because its recurrent structure and gating mechanisms provide a clear way of understanding how information is retained and updated over time.
+Personally, I found the LSTM model easier to understand. At the time of completing this project (Nov 11, 2026), Transformers had not yet been covered in lectures, so I needed to refer to additional resources and research papers to understand how the architecture works. Additionally, the LSTM architecutre was more intuitive to follow because its recurrent structure and gating mechanisms provide a clear way of understanding how information is retained and updated over time.
 
 **What improvement did you try, and what did you learn from it?**
+
 The three experiments demonstrated that different modifications can affect training behaviour and validation performance in different ways.
 
 Increasing the batch size reduced training time and produced smoother loss curves. However, the model stopped early because its validation loss began increasing after epoch 3. This best validation loss was 0.1211, although the final validation loss was 0.1255.
@@ -217,6 +217,7 @@ Stacking two LSTM layers resulted in lower final training and validation losses 
 Overall, these experiments showed the importance of evaluating both training and validation performance instead of relying on training loss alone.
 
 **Which configuration performed best?**
+
 There is no single winner across every measurement.
 - Fastest training: Batch size 512, at approximately 6 minutes.
 - Lowest recorded final validation loss: Two stacked LSTM layers, at approximately 0.1250.
@@ -233,7 +234,7 @@ There are several limitations to this project:
 2. The LSTM experiments use validation data for model evaluation. A separate test dataset would provide a more independent assessment of final predictive performance.
 3. The experiments were limited to a small number of configurations and a maximum of 10 epochs.
 4. Training times depend on the available Google Colab hardware and runtime conditions.
-5. The transformer baseline has a documented discrepancy between the provided Colab implementation and its published model summaryu.
+5. The transformer baseline has a documented discrepancy between the provided Colab implementation and its published model summary.
 
 Future work could investigate different LSTM unit counts, dropout values, input sequence lengths, and prediction horizons. Additional experiments could also compare the models across repeated runs to improve the reliability of the results.
 
@@ -254,9 +255,9 @@ Throught this project, I gained a better understanding of the overall deep learn
 
 # 11. Running the Notebooks
 The notebooks can be opened and executed using Google Colab.
-1. Open the desired notebook.
+1. Open the desired notebook in Google Colab.
 2. Selected a suitable runtime (GPU).
-3. Execute the notebook cells in order.
+3. Connect to runtime and execute the notebook cells in order.
 4. Review the model summary, training output, and loss graphs.
 
 The original baseline notebooks are located in **notebooks/baseline**. The three modified LSTM experiment notebooks, including their recorded outputs, are located in **notebooks/modified with outout/**.
