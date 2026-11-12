@@ -178,13 +178,16 @@ The following table summarizes the results of the baseline and all three experim
 |Two LSTM layers|10|0.1010|0.1250|0.1250|11 min|
 
 ## 7.1 Training and Validation Loss Graphs
-**Baseline**
+**Baseline:**
 ![Baseline](https://github.com/FakeGuestCA/CMPE401-Instructor-defined-Project-2/blob/main/results/graphs/lstm_baseline_training_and_validation_graph.png?raw=true)
-**Experiment 1: Batch Size 512**
+
+**Experiment 1 (Batch Size 512):**
 ![Batch size 512](https://github.com/FakeGuestCA/CMPE401-Instructor-defined-Project-2/blob/main/results/graphs/lstm_modified1_training_and_validation_graph.png?raw=true)
-**Experiment 2: Learning Rate 0.002**
+
+**Experiment 2 (Learning Rate 0.002):**
 ![Learning rate 0.002](https://github.com/FakeGuestCA/CMPE401-Instructor-defined-Project-2/blob/main/results/graphs/lstm_modified2_training_and_validation_graph.png?raw=true)
-**Experiment 3: Two Stacked LSTM Layers**
+
+**Experiment 3 (Two Stacked LSTM Layers):**
 ![Two stacked LSTM layers](https://github.com/FakeGuestCA/CMPE401-Instructor-defined-Project-2/blob/main/results/graphs/lstm_modified3_training_and_validation_graph.png?raw=true)
 
 # 8. Discussion
