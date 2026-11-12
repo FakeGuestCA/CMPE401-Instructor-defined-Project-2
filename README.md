@@ -1,5 +1,5 @@
 # CMPE 401 Instructor-defined Project 2
-## Understand, Organize Time Series Modelling Benchmarks for Classification and Forecasting
+# Understand, Organize Time Series Modelling Benchmarks for Classification and Forecasting
 
 Group members: Fortune Olawale, Trevor Wu.
 
@@ -96,6 +96,7 @@ The baseline CSV file is available at **results/baseline_transformer_and_lstm.cs
 |Training time|9 minutes|10 minutes|
 
 **Transformer baseline observation:**
+
 The Transformer training stopped early after 11 epochs because the validation loss did not improve. Its test accuracy was approximately 51.59%, with a loss close to 0.693.
 
 During investigation, an inconsistency was identified in the `GlobalAveragePooling1D` layer. The provided source code specifies `data_format="channels_last"`, producing an output shape of of `(None, 1)` for an input shape of `(None, 500, 1)`. However, the model summary published on the official Keras example shows an output shape of `(None, 500)`.
@@ -103,6 +104,7 @@ During investigation, an inconsistency was identified in the `GlobalAveragePooli
 This discrepancy was documented and reported to the instructor (via email). The instructor comfirmed that retaining the original implementation and its results as the baseline was acceptable. The results are therefore retained without making architectural corrections.
 
 **LSTM baseline observation:**
+
 The training loss generally decreased throughout the 10 epochs, while the validation loss fluctuated and eventually increased after reaching a lower value earlier in training.
 
 This suggests that the model may have started overfitting, as it continued improving its fit to the training data without achieving corresponding improvements on the validation data.
