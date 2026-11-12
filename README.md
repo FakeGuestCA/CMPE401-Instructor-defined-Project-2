@@ -218,5 +218,12 @@ The batch-size experiment reached the lowest validation loss, but it also began 
 
 These results highlight the trade-offs between training efficiency, model complexity, and validation performance.
 
-# 9. Conclusion
-Overall findings
+# 9. Limitations and Future Improvements
+Limitations to this project
+Future work
+
+# 10. Conclusion
+
+# 11. Running the Notebooks
+Instructions here
+Also give official Keras examples links
