@@ -1,5 +1,5 @@
 # CMPE 401 Instructor-defined Project 2
-# Understand, Organize Time Series Modelling Benchmarks for Classification and Forecasting
+## Understand, Organize Time Series Modelling Benchmarks for Classification and Forecasting
 
 Group members: Fortune Olawale, Trevor Wu.
 
@@ -223,8 +223,15 @@ The batch-size experiment reached the lowest validation loss, but it also began 
 These results highlight the trade-offs between training efficiency, model complexity, and validation performance.
 
 # 9. Limitations and Future Improvements
-Limitations to this project
-Future work
+There are several limitations to this project:
+1. Each configuration was trained only once. Repeating the experiments with different random seeds would help determine whether the observed differences are consistent.
+2. The LSTM experiments use validation data for model evaluation. A separate test dataset would provide a more independent assessment of final predictive performance.
+3. The experiments were limited to a small number of configurations and a maximum of 10 epochs.
+4. Training times depend on the available Google Colab hardware and runtime conditions.
+5. The transformer baseline has a documented discrepancy between the provided Colab implementation and its published model summaryu.
+
+Future work could investigate different LSTM unit counts, dropout values, input sequence lengths, and prediction horizons. Additional experiments could also compare the models across repeated runs to improve the reliability of the results.
+
 
 # 10. Conclusion
 This project provided practical experience with time-series classification and forecasting using two different deep learning architectures.
