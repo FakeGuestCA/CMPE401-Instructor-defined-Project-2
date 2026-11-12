@@ -169,8 +169,23 @@ Training time also increased slightly from approximately 10 minutes to 11 minute
 The results suggest that adding a second LSTM layer improved the model's validation performance in this particular run, although it required more parameters and slightly more training time.
 
 # 7. Benchmark Comparison
-Tables and graps comparing results.
-*Insert the photos of the graphs from the baseline + 3 experiments.
+The following table summarizes the results of the baseline and all three experiments.
+|Configuration|Epochs|Training loss|Final validation loss|Best validation loss|Training time|
+|---|---|---|---|---|---|
+|Baseline|10|0.1058|0.1295|0.1276|10 min|
+|Batch size 512|8|0.1064|0.1255|0.1211(epoch 3)|6 min|
+|Learning rate 0.002|10|0.1023|0.1349|0.1349|9 min|
+|Two LSTM layers|10|0.1010|0.1250|0.1250|11 min|
+
+## 7.1 Training and Validation Loss Graphs
+**Baseline**
+![Baseline](https://github.com/FakeGuestCA/CMPE401-Instructor-defined-Project-2/blob/main/results/graphs/lstm_baseline_training_and_validation_graph.png?raw=true)
+**Experiment 1: Batch Size 512**
+![Batch size 512](https://github.com/FakeGuestCA/CMPE401-Instructor-defined-Project-2/blob/main/results/graphs/lstm_modified1_training_and_validation_graph.png?raw=true)
+**Experiment 2: Learning Rate 0.002**
+![Learning rate 0.002](https://github.com/FakeGuestCA/CMPE401-Instructor-defined-Project-2/blob/main/results/graphs/lstm_modified2_training_and_validation_graph.png?raw=true)
+**Experiment 3: Two Stacked LSTM Layers**
+![Two stacked LSTM layers](https://github.com/FakeGuestCA/CMPE401-Instructor-defined-Project-2/blob/main/results/graphs/lstm_modified3_training_and_validation_graph.png?raw=true)
 
 # 8. Discussion
 What I learned and what worked best
