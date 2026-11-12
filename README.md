@@ -207,5 +207,16 @@ Stacking two LSTM layers resulted in lower final training and validation losses 
 
 Overall, these experiments showed the importance of evaluating both training and validation performance instead of relying on training loss alone.
 
+**Which configuration performed best?**
+There is no single winner across every measurement.
+- Fastest training: Batch size 512, at approximately 6 minutes.
+- Lowest recorded final validation loss: Two stacked LSTM layers, at approximately 0.1250.
+- Lowest observed validation loss: Batch size 512, at approximately 0.1211 at epoch 3.
+- Lowest training loss: Two stacked LSTM layers, at approximately 0.1010.
+
+The batch-size experiment reached the lowest validation loss, but it also began overfitting and stopped early. The stacked LSTM produced a slightly higher validation loss at the end of training, but its validation curve generally continued improving and it completed all 10 epochs.
+
+These results highlight the trade-offs between training efficiency, model complexity, and validation performance.
+
 # 9. Conclusion
 Overall findings
