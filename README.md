@@ -155,10 +155,18 @@ This demonstrates that increasing the learning rate does not necessarily improve
 - Original architecture: One LSTM layer with 32 units.
 - Modified architecture: Two stacked LSTM layers, each with 32 units.
 
-Observations here
+**Observations:**
+The first LSTM layer was configured with `return-sequence=True` so that it would return its output at every time step. This sequence was then passed to the second LSTM layer, which produced the final output used by the Dense layer.
 
+The modified model achieved a training loss of 0.1010 and a validation loss of 0.1250.
 
-All three of the notebooks with outputs are included. They are in notebooks/modifed with output
+Compared with the baseline, both the training and validation losses decreased. The validation loss also generally decreased throughout the 10 epochs, with only a small increase at epoch 9.
+
+The stacked model had 13,473 parameters, compared with 5,153 parameters in the original model. This is approximately 2.61 times as many parameters.
+
+Training time also increased slightly from approximately 10 minutes to 11 minutes.
+
+The results suggest that adding a second LSTM layer improved the model's validation performance in this particular run, although it required more parameters and slightly more training time.
 
 # 7. Benchmark Comparison
 Tables and graps comparing results.
