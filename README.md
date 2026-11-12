@@ -12,7 +12,7 @@ Time-series data is commonly used in engineering and real-world applications, in
 
 The project focuses on understanding how these two neural network architectures work, reproducing the provided implementations, and investigating how modifications to model configurations and architecture affect training behaviour and predictive performance.
 
-The LSTM forecasting model was selected for the improvement experiments.
+*The LSTM forecasting model was selected for the improvement experiments.*
 
 # 2. Objectives
 The main objectives of this project are to:
@@ -25,7 +25,7 @@ The main objectives of this project are to:
 7. Organize the notebooks, results, and observations into a documented GitHub repository.
 
 # 3. Datasets
-Two datasets are used in this project
+Two datasets are used in this project.
 
 # 3.1 FordA
 FordA is used for the Transformer-based time-series classification task.
@@ -48,7 +48,6 @@ The dataset is normalized before training to help the model earn from features w
 
 # 4. Model Architectures
 # 4.1 Transformer
-
 The Transformer uses self-attention mechanisms to identify relationships between different positions in a sequence. Unlike recurrent networks (such as LSTM), it can process sequence positions in parallel during training.
 
 The provded implementation uses Transformer encoder blocks containing multi-head attention and feed-forward layers, followed by global average pooling and dense classification layers.
@@ -56,12 +55,19 @@ The provded implementation uses Transformer encoder blocks containing multi-head
 The model is trained to classify FordA sequences into two classes using sparse categorical cross-entropy as its loss function.
 
 # 4.2 LSTM
+The LSTM is a type of recurrent neural network designed to learn temporal relationships in sequential data. It uses gates to control which information is retained, updated, or discarded over time.
 
-# 4.3 LSTM vs. Transformer
-Major differences between Transformer and LSTM
-| Feature | LSTM | Transformer |
+The original Keras implementation consists of:
+1. Input: 120 time steps, each containing 7 weather features.
+2. LSTM layer: 32 units that process the input sequence and extract temporal information.
+3. Dense layer: One output neuron that produces the predicted temperature.
+
+The model uses the Adam optimizeer with a learning rate of 0.001 and mean squared error (MSE) as its loss function.
+
+# 4.3 Transformer vs. LSTM
+| Feature | Transformer | LSTM |
 | ------- | ----------- | ---- |
-|Data processing|Sequential: Data is processed one after another|Parallel: All data is processed simultaneously|
+|Data processing|Can process sequence positions in parallel using self-attention|Processes sequences recurrently, one time step at a time|
 |Key mechanism|Uses input, forget, and output gates to either retain or discard information.|Direct relationships between all tokens are computed at once.|
 |Training speed|Slower since data is processed step-by-step.|Faster since parallelism allows better GPU utilization.|
 |Long-range context|Struggles over very long distance as information can dilute or fade over extended sequences.|Excels as self-attention connects any two points in the sequence regardless of distance.|
